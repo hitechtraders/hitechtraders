@@ -1,0 +1,31 @@
+name: Pull Request analysis
+
+on:
+  pull_request:
+    types: [opened, reopened, closed]  
+
+jobs:
+  analyze_pull_request:
+    runs-on: <>
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  
+
+      - name: Run automation script
+        run: |
+          python pathtoscript.py  
+        env:
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
