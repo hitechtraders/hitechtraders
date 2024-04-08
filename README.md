@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @hitechtraders
+- 👋 Hi, I’m @hitechtraders (Aman Saxena)
 - 👀 I’m interested in devops
 - 🌱 I’m currently learning ci tools
 - 💞️ I’m looking to collaborate on automation/devops
