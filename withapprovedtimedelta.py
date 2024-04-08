@@ -7,8 +7,6 @@ def fetch_pull_request_data(repo_owner, repo_name, pr_number):
     
     # Make GET request to the API endpoint
     response = requests.get(url)
-    
-    # Check if request was successful
     if response.status_code == 200:
         pr_data = response.json()
         pr_opened_at = pr_data['created_at']  # Timestamp when PR was opened
@@ -28,15 +26,14 @@ def calculate_duration(pr_opened_at, pr_approved_at):
     return duration
 
 if _name_ == "_main_":
-    # Specify repository details and pull request number
     repo_owner = "your_username"
     repo_name = "your_repository"
     pr_number = "1"  # Replace with your pull request number
     
-    # Fetch pull request data from the GitHub API
+
     pr_opened_at, pr_approved_at = fetch_pull_request_data(repo_owner, repo_name, pr_number)
 
-    # Calculate duration
+  
     duration = calculate_duration(pr_opened_at, pr_approved_at)
 
     # Print the duration in days, hours, and minutes
